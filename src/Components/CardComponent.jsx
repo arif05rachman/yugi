@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-
+import SpinnerComponent from './SpinnerComponent'
 export default function CardComponent(props) {
   const {
     archetype,
@@ -19,7 +19,11 @@ export default function CardComponent(props) {
   // console.log(card_images[0].image_url_small);
   return (
     <Card style={{ width: "16rem" }} className="p-1 mb-2 mx-1">
-      <Card.Img variant="top" src={card_images[0].image_url_small} />
+      {
+        card_images[0].image_url ? 
+        <Card.Img variant="top" src={card_images[0].image_url} />
+        : <SpinnerComponent/>
+      }
       <Card.Body>
         <Card.Title style={{height: '2rem', fontSize:'1rem'}} className="font-weight-bold text-center">{name}</Card.Title>
         <div>
